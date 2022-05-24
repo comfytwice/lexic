@@ -8,6 +8,7 @@
 const EMPHASIS = "__lexic_emphasis"
 const VISITED = "__lexic_visited"
 const ACIVATION_KEY = "Semicolon"
+const EMPHASISED_ELEMENTS = "p, ol, ul, span"
 const EMPHASISED_FRACTION = 3 / 4
 const ROUNDING_FN = Math.floor
 
@@ -33,12 +34,19 @@ function emphasise(word) {
 const style = document.createElement("style")
 document.head.appendChild(style)
 style.type = "text/css"
-style.appendChild(document.createTextNode(`
-  .${EMPHASIS} { font-weight: bold; }
-`))
+
+let applied = false
 
 function applyToDocument() {
-  document.querySelectorAll("p, ol, ul").forEach(node => {
+  if (applied) return
+
+  style.appendChild(document.createTextNode(`
+    .${EMPHASIS} { color: rgba(0,0,0,1); }
+    ${EMPHASISED_ELEMENTS} { color: rgba(0,0,0,0.5); }
+    a { color: rgba(0,0,0,1); text-decoration: underline; }
+  `))
+
+  document.querySelectorAll(EMPHASISED_ELEMENTS).forEach(node => {
     if (node.classList.contains(VISITED)) return
 
     // TODO ignore if a child of certain nodes: e.g. time, code, nav, etc.
@@ -49,6 +57,8 @@ function applyToDocument() {
 
     node.classList.add(VISITED)
   })
+
+  applied = true
 }
 
 document.addEventListener("keydown", ({ ctrlKey, code }) => {
