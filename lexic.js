@@ -5,9 +5,9 @@
 // @match       *://*/*
 // ==/UserScript==
 
-const TAG = "__lexic_emphasis"
-
-const TAGGED_FRACTION = 3 / 4
+const EMPHASIS = "__lexic_emphasis"
+const ACIVATION_KEY = "Semicolon"
+const EMPHASISED_FRACTION = 3 / 4
 const ROUNDING_FN = Math.floor
 
 /**
@@ -17,7 +17,7 @@ const ROUNDING_FN = Math.floor
 function k_emphasise(length) {
   return length <= 3
     ? length - 1
-    : ROUNDING_FN(length * TAGGED_FRACTION)
+    : ROUNDING_FN(length * EMPHASISED_FRACTION)
 }
 
 /**
@@ -26,14 +26,14 @@ function k_emphasise(length) {
  */
 function emphasise(word) {
   const k = k_emphasise(word.length)
-  return `<span class="${TAG}">${word.slice(0, k)}</span>${word.slice(k)}`
+  return `<span class="${EMPHASIS}">${word.slice(0, k)}</span>${word.slice(k)}`
 }
 
 const style = document.createElement("style")
 document.head.appendChild(style)
 style.type = "text/css"
 style.appendChild(document.createTextNode(`
-  .${TAG} { font-weight: bold; }
+  .${EMPHASIS} { font-weight: bold; }
 `))
 
 function applyToDocument() {
@@ -46,8 +46,8 @@ function applyToDocument() {
   })
 }
 
-document.addEventListener("keydown", function ({ ctrlKey, which }) {
-  if (ctrlKey && which === 192) {
+document.addEventListener("keydown", ({ ctrlKey, code }) => {
+  if (ctrlKey && code === ACIVATION_KEY) {
     applyToDocument()
   }
 })
