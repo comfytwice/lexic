@@ -4,7 +4,7 @@ import "global-jsdom/register"
 
 import { getByText } from "@testing-library/dom"
 
-import { name } from "../lexic.js"
+const name = "lexic"
 
 const div = document.createElement("div")
 div.innerHTML = `<p>${name}</p>`
