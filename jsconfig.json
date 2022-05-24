@@ -7,5 +7,5 @@
     "noEmit": true,
     "types": []
   },
-  "include": ["lexic.js", "tests/**/*"]
+  "include": ["userscript.js", "tests/**/*"]
 }

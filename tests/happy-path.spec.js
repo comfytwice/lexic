@@ -11,7 +11,7 @@ let dom
 
 before(async () => {
   const userscript = await fs.readFile(
-    fileURLToPath(await import.meta.resolve("../lexic.js"))
+    fileURLToPath(await import.meta.resolve("../userscript.js"))
   )
   dom = new JSDOM(`
     <body>
