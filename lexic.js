@@ -6,6 +6,7 @@
 // ==/UserScript==
 
 const EMPHASIS = "__lexic_emphasis"
+const VISITED = "__lexic_visited"
 const ACIVATION_KEY = "Semicolon"
 const EMPHASISED_FRACTION = 3 / 4
 const ROUNDING_FN = Math.floor
@@ -37,12 +38,16 @@ style.appendChild(document.createTextNode(`
 `))
 
 function applyToDocument() {
-  document.querySelectorAll("p, ol, ul, span").forEach(node => {
+  document.querySelectorAll("p, ol, ul").forEach(node => {
+    if (node.classList.contains(VISITED)) return
+
     // TODO ignore if a child of certain nodes: e.g. time, code, nav, etc.
     node.innerHTML = node.innerHTML.replaceAll(
       /(?<!<[^>]*)\w+/g, // ignore html tags themselves
       word => emphasise(word)
     )
+
+    node.classList.add(VISITED)
   })
 }
 
