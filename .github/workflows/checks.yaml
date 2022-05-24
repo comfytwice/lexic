@@ -1,0 +1,25 @@
+name: checks
+
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@35ab4267a1a21c8e8cb1c087cf1642e891ff57bd
+      - uses: actions/setup-node@v2
+        with:
+          cache: pnpm
+      - run: pnpm install --ignore-scripts --frozen-lockfile
+      - run: pnpm run lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@35ab4267a1a21c8e8cb1c087cf1642e891ff57bd
+      - uses: actions/setup-node@v2
+        with:
+          cache: pnpm
+      - run: pnpm install --ignore-scripts --frozen-lockfile
+      - run: pnpm run test

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "lib": ["es2022", "dom"],
+    "noEmit": true,
+    "types": []
+  },
+  "include": ["lexic.js", "tests/**/*"]
+}
