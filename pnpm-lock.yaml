@@ -3,19 +3,23 @@ lockfileVersion: 5.4
 specifiers:
   '@testing-library/dom': ^8.13.0
   '@types/mocha': ^9.1.1
+  '@types/ramda': ^0.28.13
   expect: ^28.1.0
   global-jsdom: ^8.4.0
   jsdom: ^19.0.0
   mocha: ^10.0.0
+  ramda: ^0.28.0
   typescript: ^4.6.4
 
 devDependencies:
   '@testing-library/dom': 8.13.0
   '@types/mocha': 9.1.1
+  '@types/ramda': 0.28.13
   expect: 28.1.0
   global-jsdom: 8.4.0_jsdom@19.0.0
   jsdom: 19.0.0
   mocha: 10.0.0
+  ramda: 0.28.0
   typescript: 4.6.4
 
 packages:
@@ -123,6 +127,12 @@ packages:
 
   /@types/node/17.0.35:
     resolution: {integrity: sha512-vu1SrqBjbbZ3J6vwY17jBs8Sr/BKA+/a/WtjRG+whKg1iuLFOosq872EXS0eXWILdO36DHQQeku/ZcL6hz2fpg==}
+    dev: true
+
+  /@types/ramda/0.28.13:
+    resolution: {integrity: sha512-ugnamgmaRzB6yontWxKh9kVstbO5gbdNGcbmcZI0U4d9S0fmN/VYCbxVm4crMAkRvMyfO4u+VIjH/G2Fyk04aA==}
+    dependencies:
+      ts-toolbelt: 6.15.5
     dev: true
 
   /@types/stack-utils/2.0.1:
@@ -987,6 +997,10 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /ramda/0.28.0:
+    resolution: {integrity: sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==}
+    dev: true
+
   /randombytes/2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
     dependencies:
@@ -1124,6 +1138,10 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       punycode: 2.1.1
+    dev: true
+
+  /ts-toolbelt/6.15.5:
+    resolution: {integrity: sha512-FZIXf1ksVyLcfr7M317jbB67XFJhOO1YqdTcuGaq9q5jLUoTikukZ+98TPjKiP2jC5CgmYdWWYs0s2nLSU0/1A==}
     dev: true
 
   /type-check/0.3.2:
